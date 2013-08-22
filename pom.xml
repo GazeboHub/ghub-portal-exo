@@ -4,8 +4,51 @@
   <artifactId>ghub-portal-exo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name></name>
+  <name>Gazebo Hub Portal Implementation, eXo Platform Extension</name>
+
+  <properties>
+    <exoplatform.version>4.0.0</exoplatform.version>
+  </properties>
+
   <modules>
-<!--  	<module></module> -->
+<!--	<module></module> -->
   </modules>
+
+  <repositories>
+    <!-- NOTE: Developer should include this repository
+	 definition in an active 'profile' element in the developer's
+	 own ~/.m2/settings.xml
+
+See also:
+https://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+    -->
+    <repository>
+      <id>exo-pub-repo</id>
+      <name>eXoPlatform public repo</name>
+      <url>http://repository.exoplatform.org/public</url>
+      <releases>
+	<checksumPolicy>fail</checksumPolicy>
+      </releases>
+      <snapshots>
+	<checksumPolicy>fail</checksumPolicy>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+	<groupId>org.exoplatform.platform</groupId>
+	<artifactId>platform</artifactId>
+	<version>${exoplatform.version}</version>
+	<type>pom</type>
+	<scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <!-- ??? -->
+  </dependencies>
+
 </project>
